@@ -1,0 +1,32 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+
+{{ message$ | async}}
+  <br/>
+  <button class="button is-danger" (click)="spanishMessage()">Spanish</button>
+  <button class="button is-success" (click)="englishMessage()">English</button>
+  <button class="button is-warning" (click)="frenchMessage()">French</button>
+</div>
+<br/>
+<br/>
+<div style="text-align:center">
+  <div *ngIf="post$ | async as post">
+
+    <h2>{{post.text}}</h2>
+    <h4>{{post.likes}}</h4>
+  </div>
+
+   <button class="button is-danger" (click)="upvote()">Upvote</button>
+  <button class="button is-success" (click)="downvote()">Downvote</button>
+  <button class="button is-warning" (click)="resetPost()">Reset post</button>
+  <button class="button is-primary" (click)="editText()">Change title</button>
+  <input type="text" class="input" placeholder="addSomeText" id="postTextControl">
+
+</div>
+
+<router-outlet></router-outlet>
+
+<app-another></app-another>
